@@ -1,1 +1,65 @@
+Documentation relative à la gestion du git et de la maj du code du projet
 
+Description des différentes commandes :
+
+git fetch
+La commande git fetch communique avec un dépôt distant et rapporte toutes les informations qui sont dans ce dépôt 
+qui ne sont pas dans le vôtre et les stocke dans votre base de données locale.
+
+git pull
+La commande git pull est essentiellement une combinaison des commandes git fetch et git merge, où Git ira chercher 
+les modifications depuis le dépôt distant que vous spécifiez et essaie immédiatement de les fusionner dans la branche 
+dans laquelle vous vous trouvez.
+
+git push
+La commande git push est utilisée pour communiquer avec un autre dépôt, calculer ce que votre base de données locale a 
+et que le dépôt distant n’a pas, et ensuite pousser la différence dans l’autre dépôt. Cela nécessite un droit d’écriture 
+sur l’autre dépôt et donc normalement de s’authentifier d’une manière ou d’une autre.
+
+git remote
+La commande git remote est un outil de gestion pour votre base de dépôts distants. Elle vous permet de sauvegarder de 
+longues URLs en tant que raccourcis, comme « origin », pour que vous n’ayez pas à les taper dans leur intégralité tout le 
+temps. Vous pouvez en avoir plusieurs et la commande git remote est utilisée pour les ajouter, les modifier et les supprimer.
+
+git archive
+La commande git archive est utilisée pour créer un fichier d’archive d’un instantané spécifique du projet.
+
+git submodule
+La commande git submodule est utilisée pour gérer des dépôts externes à l’intérieur de dépôts normaux. Cela peut être pour des 
+bibliothèques ou d’autres types de ressources partagées. La commande submodule a plusieurs sous-commandes (add, update, sync, etc) 
+pour la gestion de ces ressources.
+
+git clone ssh://git@repository_url
+Permet d'effectuer une copie sur son poste d'un dépôt, nécessite les droits de lectures.
+
+git add filename1 filename2 ...
+Fonctionne aussi sur un dossier et ajoute tous les éléments contenus dans le dossier. Obéit aux règles dans le .gitignore du dépôt, du dossier à partir duquel la commande est exécutée et du .gitignore_global de votre poste.
+
+git commit -m "Log message"
+Le message du journal sera affiché dans l'historique, voire la section sur le standard recommandé pour un message de journal.
+
+git fetch remote
+Récupère le dépôt décrit par remote.
+
+git merge origin/dev
+Merge la branche dev du dépôt origin dans la branche actuelle de votre dépôt.
+
+git pull origin
+git fetch origin et git merge tracked branch
+
+git checkout -b branch
+Créée une nouvelle branche branch et change la branche courante vers celle-ci.
+
+git checkout branch
+Change la branche courante vers branch
+
+git checkout branch|ref -- filename1 filename2 ...
+Récupère les fichiers décrits après le -- de la branche ou de la référence indiquée.
+
+git revert ref
+Requiers un index propre et enregistre une révision qui défait les changements entre la révision actuelle et la révision visée: on retourne à la révision visée.
+
+git reset path1 path2 ...
+Effectue le contraire de git add, retire les changements de l'index.
+
+Pour rechercher d'autres commandes ou paramètres: git help command.
