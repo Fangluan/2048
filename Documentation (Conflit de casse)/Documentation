@@ -6,12 +6,12 @@ git fetch
 La commande git fetch communique avec un dépôt distant et rapporte toutes les informations qui sont dans ce dépôt 
 qui ne sont pas dans le vôtre et les stocke dans votre base de données locale.
 
-git pull
+git pull => mise à jour du git en récupérant toutes les modifications enregistrées
 La commande git pull est essentiellement une combinaison des commandes git fetch et git merge, où Git ira chercher 
 les modifications depuis le dépôt distant que vous spécifiez et essaie immédiatement de les fusionner dans la branche 
 dans laquelle vous vous trouvez.
 
-git push
+git push (origin master pour la branch principale) => permet de "pusher" les modifications apportées au git
 La commande git push est utilisée pour communiquer avec un autre dépôt, calculer ce que votre base de données locale a 
 et que le dépôt distant n’a pas, et ensuite pousser la différence dans l’autre dépôt. Cela nécessite un droit d’écriture 
 sur l’autre dépôt et donc normalement de s’authentifier d’une manière ou d’une autre.
@@ -24,12 +24,7 @@ temps. Vous pouvez en avoir plusieurs et la commande git remote est utilisée po
 git archive
 La commande git archive est utilisée pour créer un fichier d’archive d’un instantané spécifique du projet.
 
-git submodule
-La commande git submodule est utilisée pour gérer des dépôts externes à l’intérieur de dépôts normaux. Cela peut être pour des 
-bibliothèques ou d’autres types de ressources partagées. La commande submodule a plusieurs sous-commandes (add, update, sync, etc) 
-pour la gestion de ces ressources.
-
-git clone ssh://git@repository_url
+git clone ssh://git@repository_url (passer par ssh pour éviter de renseigner id et mdp à chaque push et merge
 Permet d'effectuer une copie sur son poste d'un dépôt, nécessite les droits de lectures.
 
 git add filename1 filename2 ...
