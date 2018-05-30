@@ -1,30 +1,161 @@
 import React from 'react';
  
-export default class Counter extends React.Component {
+export class Score extends Component {
     constructor() {
         super()
         this.state = {
-            nb: 0,
+            score: 0,
         }
     }
  
     increment() {
         this.setState({
-            nb: this.state.nb + 1
+            // Déterminer le nouveau score
+            // nb: this.state.nb + this.state.score
         })
     }
  
     render() {
         return (
             <div>
-                <NumberDisplay
-                    numberToDisplay={this.state.nb}
-                    textColor="red"
-                />
-                <button onClick={ ( ) => this.increment() }>
-                    click me
-                </button>
+                <h1>{ this.state.nb }</h1>
+                {/* A chaque fusion de case, ajout au score du résultat obtenu dans la nouvelle cellule */}
+                {/* <button onClick={ ( ) => this.increment() }>
+                    score
+                </button> */}
             </div>
         )
     }
+ }
+
+
+// bus.js
+// ------
+import EventEmiter from 'fbemitter'
+
+class Bus extends EventEmitter {
+
 }
+
+export default new Bus()
+
+// Score.js
+// ------
+import bus from './bus'
+
+class Score extends Components {
+  state = {
+    score: 0,
+    // Optionnel pour mise en page
+    bgColor: 'none'
+  }
+
+  scoreChangeListener = null
+// Mise ON accès au bus pour collecte informations
+  componentDidMount() {
+    this.scoreChangeListener = bus.addListener('scoreChange', this.onScoreChange)
+  }
+// Bouton OFF
+  componentWillUnmount() {
+    this.scoreChangeListener.remove()
+
+    if (this.bgColorTimeout) {
+      clearTimeout(this.bgColorTimeout)
+    }
+  }
+
+  onScoreChange = (score) => {
+    this.setState({ score, bgColor: 'red' })
+    
+    if (this.bgColorTimeout) {
+        // Déclaration d'une durée temps pour changement aspect
+      clearTimeout(this.bgColorTimeout)
+    }
+
+    this.bgColorTimeout = setTimeout(() => {
+      this.setState({ bgColor: 'none' })
+    }, 1000)
+  }
+  // ...
+
+  render() {
+    return <strong className={`score-color-${this.state.bgColor}`}>{this.state.score}</strong>
+  }
+}
+
+// Grid.js
+// -------
+// => Grille (séparation entre l'aspect visuel et fonctionnel qui contiendra les fonctions et la logique de calcul)
+import bus from './bus'
+import Game from './Game'
+
+class Grid extends Component {
+  constructor() {
+    super()
+
+    this.game = new Game()
+
+    this.state = {
+      matrix: this.game.matrix
+    }
+  }
+
+  componentDidMount() {
+    this.matrixListener = this.game.addListener('matrixChanged', this.onMatrixUpdate)
+  }
+
+  componentWillUnmount() {
+    this.matrixListener.remove()
+  }
+
+  onMatrixUpdate (matrix) {
+    this.setState({ matrix })
+  }
+
+  render() {
+    return <div>
+      {this.state.matrix.map((row) => row.map((val) => <Cell value={val} />))}
+    </div>
+  }
+}
+
+// game.js
+// -------
+
+class Game extends EventEmitter {
+    // Définition de la taille de la matrice
+  constructor(size = 10) {
+    this.matrix = [
+      [null, null, 28],
+      [2, 4, 5],
+      [4, 5, 6],
+    ]
+  }
+// A l'action de flèche gauche clavier =>
+  onLeft () {
+    this.emit('matrixChanged', this.matrix)
+  }
+
+  onRight () {
+
+  }
+
+  onUp () {
+    this.emit('matrixChanged', this.matrix)
+  }
+
+  onDown () {
+
+  }
+
+  // ...
+  compute() {
+    // ...
+    bus.emit('scoreChange', 5000)
+    // ...
+  }
+  // ...
+}
+
+export default Game
+
