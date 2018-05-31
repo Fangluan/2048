@@ -13,15 +13,6 @@ class App extends Component {
         Ici div de App
         <BusTest />
         <Score />
-        <Score />
-        <Score />
-        <Score />
-        <Score />
-        <Score />
-        <Score />
-        <Score />
-        <Score />
-        <BusTest />
       </div>
     );
   }

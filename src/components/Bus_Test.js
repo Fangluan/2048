@@ -11,7 +11,7 @@ class BusTest extends Component {
             //Tentative d'affichage d'une div simple sans Event
             <div> 
                 <div>Ici séquence de div de bus_Test</div>
-                <button onClick={this.emitTestCall}>Lancer un emitTestCall</button>
+                <button onClick={this.emitTestCall}>Lancer un emit 'score' avec l'argument 10000</button>
                 <div></div>
             </div>
         )
