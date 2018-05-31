@@ -1,7 +1,0 @@
-FICHIERS/COMPOSANTS et ses fonctions:
-
-EVENT DU BUS:
-    Direction({U, R, D, L})
-        Emit: Index (keyboard ou button fleche)
-        On: Game.js
-    Update_Score
