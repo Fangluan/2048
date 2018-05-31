@@ -9,12 +9,13 @@ class BusTest extends Component {
         bus.on('Test_call', message)
     }
     render() {
-        return (
-            <div>Div qui traine</div>,
-            <button onClick={this.emitTestCall("toto")}>Test</button>,
-            <div>{this.onTestCall}</div>
+         return //(
+            //Tentative d'affichage d'une div simple sans Event
+            <div>Div qui traine</div>//,
+            // <button onClick={this.emitTestCall("toto")}>Test</button>,
+            // <div>{this.onTestCall}</div>
             
-        )
+        // )
     }
 }
 
