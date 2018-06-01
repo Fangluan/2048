@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import bus from '../bus'
+import '../App.css';
+import bus from '../../bus'
 
-import BusTest from './Bus_Test';
+import BusTest from '../Bus_Test';
 
 class Score extends Component {
   state = {
