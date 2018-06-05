@@ -24,7 +24,7 @@ class Score extends Component {
   render() {
     return (
       <div className="Score">
-        <div> Le score est à présent :</div>
+        <div>Score :</div>
         <div> {this.state.score}</div> 
       </div>
     );

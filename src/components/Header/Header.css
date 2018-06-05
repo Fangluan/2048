@@ -1,0 +1,66 @@
+/*====================================
+    HEADER (titrages etc)
+====================================*/
+div.Header {
+    height: 300PX;
+    width: 960px;
+    margin: auto;
+    padding-top: 30px;
+    background-color: BLACK;
+    color: aliceblue;
+}
+    div.Titre {
+        margin: 10px;
+        font-size: 3rem;
+    }
+    div.SousTitre {
+        margin: 10px;
+        font-size: 1.5rem;
+    }
+    /*====================================
+        RECORD (l'objet)
+    ====================================*/  
+    div.Elements {
+        display: flex;
+        width: 500px;
+        margin: 30px auto;
+        padding: 0 50px;
+        justify-content: space-between;
+    }
+        button {
+            background-color: orange;
+            font-size: 1.5rem;
+        }
+        div.InfoScore {
+            /* margin: 20px; */
+            font-size: 1.5rem;
+        }
+        /*====================================
+            RECORD (l'objet)
+        ====================================*/
+        div.Record {
+            height: 50px;
+            /* width: 150px; */
+            font-size: 1.5rem;
+            display: block;
+            color: red;
+            margin: 10px;
+        }
+            div.Record div{
+                font-size: 1.25rem;
+                display: inline;
+            }
+
+        /*====================================
+            SCORE (l'objet)
+        ====================================*/
+        div.Score {
+            height: 50px;
+            color: green;
+            display: block;
+            margin: 10px;
+        }
+            div.Score div{
+                font-size: 1.25rem;
+                display: inline;
+            }
