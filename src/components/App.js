@@ -6,6 +6,7 @@ import BusTest from './Bus_Test';
 import Header from './Header/Header';
 import Content from './Content/Content';
 import Footer from './Footer/Footer';
+import Grid from './Content/Grid';
 
 class App extends Component {
 
