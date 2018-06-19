@@ -1,0 +1,228 @@
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+  }
+  
+  p {
+    text-align: center;
+  }
+  
+  table {
+    margin: 0 auto;
+  }
+  
+  .buttons {
+    margin: auto;
+    display: flex;
+    
+  }
+  
+  /* .button {
+    background-color: black;
+    color: white;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+    
+  } */
+
+/* Modifications à apporter pour transformer les boutons en flèches */
+  .buttonup {
+    background-color: black;
+    color: rgb(105, 117, 221);
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    text-align: center;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+
+  }
+
+  .buttonright {
+    background-color: black;
+    color: rgb(105, 117, 221);
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+
+  }
+
+  .buttondown {
+    background-color: black;
+    color: rgb(105, 117, 221);
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto ;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    text-align: center;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+
+
+  }
+
+  .buttonleft {
+    background-color: black;
+    color: rgb(105, 117, 221);
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto 0;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    text-align: center;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+
+  }
+
+.buttonsize {
+    height: 622px;
+    margin: auto 0;
+    position: relative; 
+    top: 270px;
+}
+
+.grid {
+    width: 1060px;
+    height: 1060px;
+    margin: 0 auto;
+}
+
+  .fleche {
+	position: relative;
+	background: #88b7d5;
+  height: 50px;
+  width: 200px;
+  margin-top: 50px;
+}
+
+.fleche:after {
+  left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(136, 183, 213, 0);
+	border-left-color: #88b7d5;
+	border-width: 50px;
+	margin-top: -50px;
+}
+
+
+  
+  .button:hover {
+    background-color: #50C8FF;
+    color: #c55b2a;
+    transition: background-color 0.5s, color 0.5s;
+  }
+  
+  .cell {
+    height: 120px;
+    width: 120px;
+    background-color: #ada0a0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .color-2 {
+    background-color: #A5D6A7;
+  }
+  
+  .color-4 {
+    background-color: #388E3C;
+  }
+  
+  .color-8 {
+    background-color: #1B5E20;
+  }
+  
+  .color-16 {
+    background-color: #FFCA28;
+  }
+  
+  .color-32 {
+    background-color: #EF6C00;
+  }
+  
+  .color-64 {
+    background-color: #78909C;
+  }
+  
+  .color-128 {
+    background-color: #81D4FA;
+  }
+  
+  .color-256 {
+    background-color: #01579B;
+  }
+  
+  .color-512 {
+    background-color: #1A237E;
+  }
+  
+  .color-1024 {
+    background-color: #D32F2F;
+  }
+  
+  .color-2048 {
+    background-color: #D50000;
+  }
+
+  .color-4096 {
+    background-color: #E3F2FD;
+  }
+  
+  .number {
+    color: white;
+    font-size: 35px;
+  }
