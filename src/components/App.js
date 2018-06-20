@@ -13,10 +13,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <BusTest /> */}
         <Header />
-        {/* <Content /> */}
-        {/* <Footer /> */}
+        <Content />
+        <Footer />
       </div>
     );
   }
