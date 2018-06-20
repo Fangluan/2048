@@ -27,20 +27,19 @@ class Grid extends Component {
     this.setState({ grid });
   }
 
-  // A pro
-
-  // Récupérer les coordonnées des cellules vides
+  // Récupérer les coordonnées des cellules vides. r = row ; c = column
   getEmptyCells(grid) {
     const emptyCells = [];
 
     for (let r = 0; r < grid.length; r++) {
       for (let c = 0; c < grid[r].length; c++) {
         if (grid[r][c] === 0) {
+          // push => ajout de valeurs à notre grille
           emptyCells.push([r, c]);
         }
       }
     }
-
+    // Retourne les coordonnées des cellules vides
     return emptyCells;
   }
 
@@ -62,14 +61,17 @@ class Grid extends Component {
     return grid;
   }
 
-  // Compare "deux grilles" afin de vérifier le mouvement.
+  // La méthode JSON.stringify() convertit une valeur JavaScript en chaîne JSON. Va permettre de comparer deux grilles pour vérifier les mouvements
+  // (déplacements). Original = stockée. Updated = mise à jour.
   restingMovements(original, updated) {
     return JSON.stringify(updated) !== JSON.stringify(original) ? true : false;
   }
 
-  // Déplace le contenu de la grille en fonction des déplacements et vérifie si gameOver (plus de mouvements possibles) Il faudra très certainement adapter
-  //  le code avec l'ajout du bouton UNDO
+  // Déplace le contenu de la grille en fonction des déplacements demandés (par clavier ou boutons) et vérifie si gameOver (plus de mouvements possibles).
+  // Chacun des 4 mouvements possibles est vérifié. Si mouvement encore possible, une nouvelle cellule apparaît d'où rappel arbitraryPosition.
+  // Je ne pense pas que l'ajout du bouton UNDO ait un impact sur le code.
   move(direction) {
+    // ! => pas égal
     if (!this.state.gameOver) {
       if (direction === "up") {
         const movedUp = this.moveUp(this.state.grid);
@@ -145,30 +147,35 @@ class Grid extends Component {
         }
       }
     } else {
-      this.setState({ message: "Game over. Veuillez appuyer sur le bouton." });
+      this.setState({
+        message: "Game over. Veuillez appuyer sur le bouton reset."
+      });
     }
   }
 
-  // Codage des différentes actions de fusion à éventuellement mener en fonction des différents mouvement sollicités.
+  // Codage des différentes actions, notamment de fusion à éventuellement mener, suivant les mouvements demandés au préalable.
 
   // Pour mouvements vers la droite
   moveUp(inputGrid) {
-    let rotatedRight = this.rotateRight(inputGrid);
+    let displacedRight = this.displaceRight(inputGrid);
     let grid = [];
     let score = 0;
 
     // Décale tous les chiffres vers la droite
-    for (let r = 0; r < rotatedRight.length; r++) {
+    for (let r = 0; r < displacedRight.length; r++) {
       let row = [];
-      for (let c = 0; c < rotatedRight[r].length; c++) {
-        let current = rotatedRight[r][c];
+      for (let c = 0; c < displacedRight[r].length; c++) {
+        let current = displacedRight[r][c];
+        // unshift => méthode qui ajoute un ou plusieurs éléments au début de notre grille et renvoie la nouvelle longueur (length) du tableau.
+        // push => ajout de valeurs à notre grille
         current === 0 ? row.unshift(current) : row.push(current);
       }
       grid.push(row);
     }
 
-    // Fusionne cellules le cas échéant
+    // Fusionne tous les chiffres le cas échéant et décale le nouveau chiffre vers la droite.
     for (let r = 0; r < grid.length; r++) {
+      // -- => Décrémente
       for (let c = grid[r].length - 1; c >= 0; c--) {
         if (grid[r][c] > 0 && grid[r][c] === grid[r][c - 1]) {
           grid[r][c] = grid[r][c] * 2;
@@ -181,7 +188,7 @@ class Grid extends Component {
       }
     }
 
-    grid = this.rotateLeft(grid);
+    grid = this.displaceLeft(grid);
 
     return { grid, score };
   }
@@ -216,14 +223,14 @@ class Grid extends Component {
   }
 
   moveDown(inputGrid) {
-    let rotatedRight = this.rotateRight(inputGrid);
+    let displacedRight = this.displaceRight(inputGrid);
     let grid = [];
     let score = 0;
 
-    for (let r = 0; r < rotatedRight.length; r++) {
+    for (let r = 0; r < displacedRight.length; r++) {
       let row = [];
-      for (let c = rotatedRight[r].length - 1; c >= 0; c--) {
-        let current = rotatedRight[r][c];
+      for (let c = displacedRight[r].length - 1; c >= 0; c--) {
+        let current = displacedRight[r][c];
         current === 0 ? row.push(current) : row.unshift(current);
       }
       grid.push(row);
@@ -243,7 +250,7 @@ class Grid extends Component {
       }
     }
 
-    grid = this.rotateLeft(grid);
+    grid = this.displaceLeft(grid);
 
     return { grid, score };
   }
@@ -278,7 +285,7 @@ class Grid extends Component {
     return { grid, score };
   }
 
-  rotateRight(matrix) {
+  displaceRight(matrix) {
     let result = [];
 
     for (let c = 0; c < matrix.length; c++) {
@@ -292,7 +299,7 @@ class Grid extends Component {
     return result;
   }
 
-  rotateLeft(matrix) {
+  displaceLeft(matrix) {
     let result = [];
 
     for (let c = matrix.length - 1; c >= 0; c--) {
@@ -330,6 +337,7 @@ class Grid extends Component {
     const right = 39;
     const down = 40;
     const left = 37;
+    const z = 90;
 
     if (e.keyCode === up) {
       this.move("up");
@@ -339,6 +347,8 @@ class Grid extends Component {
       this.move("down");
     } else if (e.keyCode === left) {
       this.move("left");
+    } else if (e.keyCode === z) {
+      this.move();
     }
   }
 
@@ -414,7 +424,7 @@ window.addEventListener(
   false
 );
 
-// Permet de modifier la class d'une nouvelle cellule issue de la fusion de "nombres". Vous pouvez modifier le spectre de couleurs dans le CSS.
+// Permet de modifier la "class" d'une nouvelle cellule issue de la fusion de "nombres". Vous pouvez modifier le spectre de couleurs dans le CSS.
 const Row = ({ row }) => {
   return <tr>{row.map((cell, i) => <Cell key={i} cellValue={cell} />)}</tr>;
 };
