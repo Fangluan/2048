@@ -1,0 +1,21 @@
+/* div.footer {
+    border: 3px solid black;
+    width: 960px;
+    margin-top: 5px ;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: black ;
+
+} */
+div.footer {
+    height:100PX; 
+    width: 960px;
+    margin: auto;
+    margin-bottom: 0;
+    padding: 5px;
+    background-color: BLACK;
+    color: aliceblue;
+    border: 5px solid whitesmoke,;
+    border-top-left-radius : 50px;
+    border-top-right-radius : 50px;
+}

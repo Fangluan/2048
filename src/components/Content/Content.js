@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import "./Content.css";
 import Grid from './Grid';
 import Game from './Game';
 

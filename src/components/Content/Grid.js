@@ -45,7 +45,7 @@ class Grid extends Component {
 
   // Initier deux valeurs au lancement du jeu (modifiable entre les 2 ou 4)
   initialNumbers() {
-    const startingNumbers = [2, 4];
+    const startingNumbers = [2]//, 4];// r1 Propose d'initialisé à 1 seulle valeur
     const randomNumber =
       startingNumbers[Math.floor(Math.random() * startingNumbers.length)];
     return randomNumber;
@@ -63,6 +63,7 @@ class Grid extends Component {
 
   // La méthode JSON.stringify() convertit une valeur JavaScript en chaîne JSON. Va permettre de comparer deux grilles pour vérifier les mouvements
   // (déplacements). Original = stockée. Updated = mise à jour.
+  // r1 Le bouton undo doit call une fonction qui : transforme grid en l'état de sortie de JSON.stringify(original) ? C'est bien un state de contenu ? Il est stocké en dur ce json ?
   restingMovements(original, updated) {
     return JSON.stringify(updated) !== JSON.stringify(original) ? true : false;
   }
@@ -74,7 +75,7 @@ class Grid extends Component {
     // ! => pas égal
     if (!this.state.gameOver) {
       if (direction === "up") {
-        const movedUp = this.moveUp(this.state.grid);
+        const movedUp = this.moveUp(this.state.grid); 
         if (this.restingMovements(this.state.grid, movedUp.grid)) {
           const upWithRandom = this.arbitraryPosition(movedUp.grid);
 
@@ -358,6 +359,7 @@ class Grid extends Component {
 
   // Instanciation des boutons fléchés (modifier le css pour les transformer en flèches et ajuster les margin pour clean).
   // J'ai un petit souci avec le CSS concernant notamment l'alignement interne des textes (seul "right" est centré)
+  //r1 Si on a le temps, je vais tacher d'ajouter un petite effet de "flash" sur le bouton correspondant lorsque on clic ou qu'on utilise une feche du clavier
   render() {
     return (
       <div className="grid">

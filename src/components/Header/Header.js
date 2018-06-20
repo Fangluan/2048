@@ -12,7 +12,7 @@ class Header extends Component {
         // Changer className en id
         <div className="Header">
           <div className="Titre">2048</div>
-          <div className="SousTitre">Le 2048 de la mort qui tue, le retour de la vengeance opus 42</div>
+          <div className="SousTitre">Le 2048 de la mort qui tue, le retour de la vengeance opus 42 <br />Edition spéciale : "Epileptic kiss"</div>
           <div className="Elements">
             <button className="Reset" onclic="callReset()">Reset</button>
             {/* Ou définir la fonction callReset (qui passe au bus un event (emit) ? pas de section <script> à priori ==> faire un nouvel objet ? */}

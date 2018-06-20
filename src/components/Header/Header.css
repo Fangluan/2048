@@ -8,6 +8,10 @@ div.Header {
     padding-top: 30px;
     background-color: BLACK;
     color: aliceblue;
+    border: 5px solid whitesmoke,;
+    border-bottom-left-radius : 50px;
+    border-bottom-right-radius : 50px;
+    /*box-shadow: 8px 8px 0px #aaa; */
 }
     div.Titre {
         margin: 10px;

@@ -10,6 +10,9 @@ h1 {
   
   table {
     margin: 0 auto;
+    border: 30px solid black;
+    border-radius: 25px
+    /* margin:3px; */
   }
   
   .buttons {
@@ -129,7 +132,7 @@ h1 {
 
 .grid {
     width: 1060px;
-    height: 1060px;
+    height: 900px;
     margin: 0 auto;
 }
 
