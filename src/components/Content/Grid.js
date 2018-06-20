@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Grid.css";
 // import Game from 'Game' A intégrer quand déplacement des fonctions dans cet objet;
 
+
 class Grid extends Component {
   constructor(props) {
     super(props);
@@ -375,13 +376,14 @@ class Grid extends Component {
         </div>
         <div className="buttons">
           <div className="buttonsize">
-            <div
-              className="buttonleft"
+            <div className="buttonleft" 
               onClick={() => {
                 this.move("left");
               }}
             >
               Left
+              <img src="./baseline-keyboard_arrow_left-24px.svg" alt="Flèche gauche">  
+              </img>
             </div>
           </div>
           <table>
