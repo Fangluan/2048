@@ -363,41 +363,31 @@ class Grid extends Component {
   //r1 Si on a le temps, je vais tacher d'ajouter un petite effet de "flash" sur le bouton correspondant lorsque on clic ou qu'on utilise une feche du clavier
   render() {
     return (
-      <div className="grid">
+      <div className="Game_Zone flex_container">
 
-        <div className="buttons">
-          <div className="buttonup" onClick={() => { this.move("up"); }} >
-            Up
-          </div>
-        </div>
-
-        <div className="buttons">
-          <div className="buttonsize">
-            <div className="buttonleft" onClick={() => { this.move("left"); }} >
-              Left
+        <div className="Boutons_Input buttonLEFT flex_item" onClick={() => { this.move("left"); }} >
+          Left
               {/*<img src={require('D:/1b_PROJETS/YNOV/6_JAVASCRIPT/2048/src/components/Content/fl_bottom.svg')} alt="Flèche gauche" /> */} 
-            </div>
-          </div>
         </div>
 
-        <table>
-          {this.state.grid.map((row, i) => <Row key={i} row={row} />)}
-        </table>
-
-        <div className="buttons">
-          <div className="buttonsize">
-            <div className="buttonright" onClick={() => { this.move("right"); }} >
-              Right
-            </div>
+        <div className="Colonne_centrale flex_item flex_container">
+          <div className="Boutons_Input buttonUP flex_item" onClick={() => { this.move("up"); }} >
+          Up
           </div>
-        </div>
-      
-        <div className="buttons">
-          <div className="buttondown" onClick={() => { this.move("down"); }} >
+
+          <table className="flex_item">
+            {this.state.grid.map((row, i) => <Row key={i} row={row} />)}
+          </table>
+          
+          <div className="Boutons_Input buttonDOWN flex_item" onClick={() => { this.move("down"); }} >
             Down
           </div>
-        </div>
+        </div>  {/* Fin du contenaire colonne centrale*/}
 
+        <div className="Boutons_Input buttonRIGHT flex_item" onClick={() => { this.move("right"); }} >
+          Right
+        </div>
+      
         <p>{this.state.message}</p>
       </div>
     );
