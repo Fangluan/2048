@@ -1,147 +1,111 @@
-
+/*----------------------------
+|   TEXTE
+-----------------------------*/
 h1 {
     text-align: center;
     font-size: 50px;
-  }
+}
+
+p {
+  text-align: center;
+}
+
+/*----------------------------
+|   Game_Zone
+-----------------------------*/
+
+/*Div racine de cet objet, contenant à la fois les 4 boutons et la grille */
+div.Game_Zone {
+  width: 975px;
+  height: 900px;
+  margin: 0 auto;
+}
+div.flex_container { /*C'est exactement le meme objet, mais on rassemble ici les éléments relatifs à flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+/*----------------------------
+|   Boutons_Input
+-----------------------------*/
+div.Boutons_Input {
+  background-color: black;
+  color: white;
+  font-weight:  bold;
+  font-size: 1.5rem;
+  height: 30px;
+  line-height: 30px;
+  width:  100px; /* Référence pr flex-basis */
+  border-radius: 15px;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+div.Boutons_Input:hover {
+  background-color: #50C8FF;
+  color: #c55b2a;
+  transition: background-color 0.5s, color 0.5s;
+}
+div.flex_item { /* Le scope de cette classe est : les 4 boutons d'input + la grille de jeu */
+  flex-basis: auto; /* Vas chercher la valeur de width*/
+}
+
+
   
-  p {
-    text-align: center;
+div.buttonLEFT {
+  align-self:center;
+  order: 1;
+}
+/* Colonne centrale */
+div.Colonne_centrale {
+  align-self:center;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  /* align-content: center; */
+}
+  div.buttonUP {
+    /* align-self:flex-start; */
+    order: 1;
   }
-  
+  /* Grille_cases */
+  /* Au centre de la Game_Zone, cette div contient les case du jeu. Attention, c'est un des flex item du contenaire racine ! */
   table {
-    margin: 0 auto;
-    border: 30px solid black;
-    border-radius: 25px
+    margin: 50px;
+    border: 25px solid black;
+    border-radius: 20px
     /* margin:3px; */
   }
-  
-  .buttons {
-    margin: auto;
-    display: flex;
-    
+  table.flex_item {
+    align-self: center;
+    order: 2;
   }
   
-  /* .button {
-    background-color: black;
-    color: white;
-    height: 30px;
-    width: 100px;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    margin-top: 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.5s, color 0.5s;
-    
-  } */
-
-/* Modifications à apporter pour transformer les boutons en flèches */
-  .buttonup {
-    background-color: black;
-    color: rgb(105, 117, 221);
-    height: 30px;
-    width: 100px;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    margin-top: 10px;
-    text-align: center;
-    position: relative;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.5s, color 0.5s;
-
+  div.buttonDOWN {
+    /* align-self:flex-end; */
+    order: 3;
   }
 
-  .buttonright {
-    background-color: black;
-    color: rgb(105, 117, 221);
-    height: 30px;
-    width: 100px;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    margin-top: 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.5s, color 0.5s;
-
-  }
-
-  .buttondown {
-    background-color: black;
-    color: rgb(105, 117, 221);
-    height: 30px;
-    width: 100px;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 0 auto ;
-    margin-bottom: 25px;
-    margin-top: 25px;
-    text-align: center;
-    position: relative;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.5s, color 0.5s;
-
-
-  }
-
-  .buttonleft {
-    background-color: black;
-    color: rgb(105, 117, 221);
-    height: 30px;
-    width: 100px;
-    border-radius: 5px;
-    padding: 10px;
-    margin: auto 0;
-    margin-bottom: 25px;
-    margin-top: 10px;
-    text-align: center;
-    position: relative;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.5s, color 0.5s;
-
-  }
-
-.buttonsize {
-    height: 622px;
-    margin: auto 0;
-    position: relative; 
-    top: 270px;
+div.buttonRIGHT {
+  align-self:center;
+  order: 3;
 }
 
-.grid {
-    width: 975px;
-    height: 900px;
-    margin: 0 auto;
-}
 
-  .fleche {
-	position: relative;
-	background: #88b7d5;
-  height: 50px;
-  width: 200px;
-  margin-top: 50px;
+
+/* Es que la classe .fleche est un relicat de code qui aurait due être suprimé ?
+.fleche {
+position: relative;
+background: #88b7d5;
+height: 50px;
+width: 200px;
+margin-top: 50px;
 }
 
 .fleche:after {
@@ -158,82 +122,70 @@ h1 {
 	border-width: 50px;
 	margin-top: -50px;
 }
+ */
 
-i {
-  border: solid white;
-  border-width: 0 15px 15px 0;
-  display: inline-block;
-  padding: 3px;
+
+
+.cell {
+  height: 100px;
+  width: 100px;
+  background-color: #ada0a0;
+  border-radius: 10px;
+  border: 2px solid whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}  
-  .button:hover {
-    background-color: #50C8FF;
-    color: #c55b2a;
-    transition: background-color 0.5s, color 0.5s;
-  }
-  
-  .cell {
-    height: 120px;
-    width: 120px;
-    background-color: #ada0a0;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .color-2 {
-    background-color: #A5D6A7;
-  }
-  
-  .color-4 {
-    background-color: #388E3C;
-  }
-  
-  .color-8 {
-    background-color: #1B5E20;
-  }
-  
-  .color-16 {
-    background-color: #FFCA28;
-  }
-  
-  .color-32 {
-    background-color: #EF6C00;
-  }
-  
-  .color-64 {
-    background-color: #78909C;
-  }
-  
-  .color-128 {
-    background-color: #81D4FA;
-  }
-  
-  .color-256 {
-    background-color: #01579B;
-  }
-  
-  .color-512 {
-    background-color: #1A237E;
-  }
-  
-  .color-1024 {
-    background-color: #D32F2F;
-  }
-  
-  .color-2048 {
-    background-color: #D50000;
-  }
 
-  .color-4096 {
-    background-color: #E3F2FD;
-  }
-  
-  .number {
-    color: white;
-    font-size: 35px;
-  }
+.color-2 {
+  background-color: #A5D6A7;
+}
+
+.color-4 {
+  background-color: #388E3C;
+}
+
+.color-8 {
+  background-color: #1B5E20;
+}
+
+.color-16 {
+  background-color: #FFCA28;
+}
+
+.color-32 {
+  background-color: #EF6C00;
+}
+
+.color-64 {
+  background-color: #78909C;
+}
+
+.color-128 {
+  background-color: #81D4FA;
+}
+
+.color-256 {
+  background-color: #01579B;
+}
+
+.color-512 {
+  background-color: #1A237E;
+}
+
+.color-1024 {
+  background-color: #D32F2F;
+}
+
+.color-2048 {
+  background-color: #D50000;
+}
+
+.color-4096 {
+  background-color: #E3F2FD;
+}
+
+.number {
+  color: white;
+  font-size: 35px;
+}
