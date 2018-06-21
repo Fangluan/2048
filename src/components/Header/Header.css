@@ -22,11 +22,13 @@ div.Header {
         font-size: 1.5rem;
     }
     /*====================================
-        RECORD (l'objet)
+        ELEMENTS (div container des objets)
     ====================================*/  
     div.Elements {
         display: flex;
         width: 700px;
+        height: auto;
+        min-height: 150px;
         margin: 30px auto;
         padding: 0 50px;
         justify-content: space-between;
@@ -45,26 +47,38 @@ div.Header {
         /*====================================
             RECORD (l'objet)
         ====================================*/
-        div.Record {
+        div.Container_Record {
             height: 50px;
-            /* width: 150px; */
-            font-size: 1.5rem;
+            /* color: green; */
             display: block;
-            color: red;
             margin: 10px;
         }
-            div.Record div{
-                font-size: 1.25rem;
+            div.Container_Record div{
+                font-size: 2rem;
                 display: inline;
+                font-weight: bold; 
             }
 
+            .Flash_Update_Record_Passif { /*Pas forcement nécessaire, mais on assure les basses pr le moment*/
+                margin: 10px;
+                color: white;
+            }
+            .Flash_Update_Record_Actif { /*Pas forcement nécessaire, mais on assure les basses pr le moment*/
+                margin: 10px;
+                /*color: yellow;*/
+                font-size: 3rem;
+            } 
+            em.Increment {
+                font-size: 1.5rem;
+                color: grey;
+            }
         /*====================================
             SCORE (l'objet)
         ====================================*/
         div.Container_Score {
             height: 50px;
             /* color: green; */
-            display: block;
+            display: inline;
             margin: 10px;
         }
             div.Container_Score div{
@@ -72,11 +86,11 @@ div.Header {
                 display: inline;
             }
 
-            .Flash_UpdateScore_Passif { /*Pas forcement nécessaire, mais on assure les basses pr le moment*/
+            .Flash_Update_Score_Passif { /*Pas forcement nécessaire, mais on assure les basses pr le moment*/
                 margin: 10px;
                 color: white;
             }
-            .Flash_UpdateScore_Actif { /*Pas forcement nécessaire, mais on assure les basses pr le moment*/
+            .Flash_Update_Score_Actif { /*Pas forcement nécessaire, mais on assure les basses pr le moment*/
                 margin: 10px;
                 /*color: yellow;*/
                 font-size: 2rem;

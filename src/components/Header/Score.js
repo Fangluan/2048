@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './Header.css';
-
 import bus from '../Bus'
 
 
@@ -9,7 +7,7 @@ class Score extends Component {
     increment: null,
     pop_increment:null,
     score : 0,
-    Font_Color: 'Passif',
+    Score_Flash: 'Passif',
     AnnimScoreTimeout: null
   }
 
@@ -23,8 +21,8 @@ class Score extends Component {
   componentWillUnmount() {
     this.UpdateScore_Ecouteur.remove()
 
-    if (this.Font_ColorTimeout) {
-      clearTimeout(this.Font_ColorTimeout)
+    if (this.Score_FlashTimeout) {
+      clearTimeout(this.Score_FlashTimeout)
     }
   }
 // EFFET D'UNE UPDATE DU SCORE
@@ -33,7 +31,7 @@ class Score extends Component {
     this.setState({
       increment : "".concat('+ ', new_score - this.state.score),
       score : new_score,
-      Font_Color: 'Actif'
+      Score_Flash: 'Actif'
     })
     
     if (this.AnnimScoreTimeout) {
@@ -42,7 +40,7 @@ class Score extends Component {
 
     this.AnnimScoreTimeout = setTimeout(() => {
       this.setState({
-        Font_Color: 'Passif',
+        Score_Flash: 'Passif',
         increment:null
        })
       
@@ -54,7 +52,7 @@ class Score extends Component {
       <div className="Container_Score">
         <div>Score : </div>
         <div> 
-          <strong className={`Flash_UpdateScore_${this.state.Font_Color}`}>
+          <strong className={`Flash_Update_Score_${this.state.Score_Flash}`}>
              {this.state.score}
            </strong>
            <em className='Increment'>
