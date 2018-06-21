@@ -99,3 +99,35 @@ div.Header {
                 font-size: 1.5rem;
                 color: grey;
             }
+        /*====================================
+            BOUTON 
+        ====================================*/
+        button.Bouton {
+            background-color: black; 
+            color: white;
+            /* font-weight:  bold; */
+            font-size: 2rem;
+            height: 100px;
+            width:  200px; 
+            border: 7px solid white;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 0;
+            /* text-align: center; */
+            cursor: pointer;
+            transition: background-color 0.5s, color 0.5s;
+          }
+          div.Boutons_Input:hover {
+            background-color: #792a2a;
+            color: #c55b2a;
+            transition: background-color 0.5s, color 0.5s;
+          }
+          strong{
+            display: inline-block;
+            vertical-align: middle;
+            font-weight:  bold;
+          }
+          em {
+              font-size: 1.5rem;
+              font-weight: normal;
+            }

@@ -30,3 +30,6 @@ export default new Bus()
 //     Undo()
 //         Emit: Index(bouton Undo)
 //         On: Game.js, Score.js, Record.js
+//         Revenir à l'état précédent de la grille
+//          + décrémenter le score (par le record)
+//          + décrémenter le nb de token d'undo restant

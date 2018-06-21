@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
-import '../App.css';
-import bus from '../../bus'
+import bus from '../Bus'
 
 
-// class Score extends Component {
-//   state = {
-//     score: 0
-//   }
+class Bouton_Reset extends Component {
+    state = {
+        Nb_Reset : 0
+    }
+    
+    Clic_Reset = () => {
+        bus.emit('ResetGrid'),
+        this.setState({
+            Nb_Reset : this.state.Nb_Reset+1
+        })
+    }
+  
 
-//   componentDidMount() {
-//     this.scoreListener = bus.addListener('SCORE', this.onNewScore)
-//   }
+  render() {
+    return (
+        <button className="Bouton Reset" onClick={this.Clic_Reset}>
+            <strong>
+                Reset <em>({this.state.Nb_Reset})</em> 
+            </strong>
+        </button>
+    );
+  }
+}
 
-//   componentWillUnmount() {
-//       this.scoreListener.remove()
-//   }
-
-//   onNewScore = (score) => {
-//       this.setState({ score })
-//   }
-
-//   render() {
-//     return (
-//       <div className="Score">
-//         <div>Score :</div>
-//         <div> {this.state.score}</div> 
-//       </div>
-//     );
-//   }
-// }
-
-// export default Score;
+export default Bouton_Reset;
