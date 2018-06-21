@@ -1,3 +1,16 @@
+Un jeu de "2048" dans le cadre d'une évaluation en JS
+
+A faire :
+- sortir le bloc moteur de grid
+- uniformiser les nom de variables (faire une recherche sur les "_")
+- refactoriser code (surtout css)
+- passer des classes en id
+- Pr ce qui est de la mise en forme, je suis parti sur l'idée qu'il fallait un rendu pr le projecteur de la classe qui a un rendu non compatible avec un affichage "normale" sur le poste. Du coup, ca devrait etre plus propre pr la soutenance, mais sur nos PC, ca oblige à de-zoomer à fond, et c'est des proportions "chelou" entre les éléments
+
+
+
+
+==========================
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

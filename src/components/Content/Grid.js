@@ -19,6 +19,34 @@ class Grid extends Component {
       message: null
     };
   }
+// INITIALISATION LISTENER ResetGrid
+ResetGrid_Ecouteur = null //Ce petit batard de bout de code vient de me faire perdre plus de 2h !
+
+componentDidMount() {
+  this.ResetGrid_Ecouteur = bus.addListener('ResetGrid', this.ResetGrid_Effet)
+}
+
+componentWillUnmount() {
+  this.ResetGrid_Ecouteur.remove()
+}
+
+// EFFET ResetGrid
+ResetGrid_Effet() {
+ // this.initGrid();
+  // this.getEmptyCells();
+  //this.componentWillMount();
+  //console.log("ResetGrid_Effet lancé");
+  // let grid_0 = [
+  //   [0, 0, 0, 0, 0],
+  //   [0, 0, 0, 0, 0],
+  //   [0, 0, 0, 0, 0],
+  //   [0, 0, 0, 0, 0],
+  //   [0, 0, 0, 0, 0]
+  // ]; 
+  //grid = this.arbitraryPosition(this.arbitraryPosition(grid));
+  // this.setState({ grid : grid_0 });
+  //move(direction)
+}
 
   // Création d'une matrice 5x5 (à adapter dans le cas où l'on souhaiterait une matrice modifiable en fonction de la volonté du joueur)
   initGrid() {
@@ -28,7 +56,7 @@ class Grid extends Component {
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0]
-    ];
+    ]; 
     grid = this.arbitraryPosition(this.arbitraryPosition(grid));
     this.setState({ grid });
   }

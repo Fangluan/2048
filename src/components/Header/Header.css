@@ -26,7 +26,7 @@ div.Header {
     ====================================*/  
     div.Elements {
         display: flex;
-        width: 700px;
+        width: 800px;
         height: auto;
         min-height: 150px;
         margin: 30px auto;

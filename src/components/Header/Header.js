@@ -30,7 +30,7 @@ class Header extends Component {
         // Changer className en id
         <div className="Header">
           <div className="Titre"><h1>2048 et des brouettes</h1></div>
-          <div className="SousTitre">Le 2048 de la mort qui tue, le retour de la vengeance opus 42 <br /><h2>Edition spéciale : "Epileptic kiss"</h2></div>
+          <div className="SousTitre">Le 2048 de la mort qui tue, le retour de la vengeance, opus 42 <br /><h2>Edition spéciale : "Epileptic kiss"</h2></div>
           <div className="Elements">
             <Bouton_Reset />
            
