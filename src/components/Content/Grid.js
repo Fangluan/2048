@@ -46,7 +46,7 @@ class Grid extends Component {
 
   // Initier deux valeurs au lancement du jeu (modifiable entre les 2 ou 4)
   initialNumbers() {
-    const startingNumbers = [2]//, 4];// r1 Propose d'initialisé à 1 seulle valeur
+    const startingNumbers = [2, 4];// r1 Propose d'initialiser à 1 seulle case (de valeur fixe 2)
     const randomNumber =
       startingNumbers[Math.floor(Math.random() * startingNumbers.length)];
     return randomNumber;
@@ -364,49 +364,36 @@ class Grid extends Component {
   render() {
     return (
       <div className="grid">
+
         <div className="buttons">
-          <div
-            className="buttonup"
-            onClick={() => {
-              this.move("up");
-            }}
-          >
+          <div className="buttonup" onClick={() => { this.move("up"); }} >
             Up
           </div>
         </div>
+
         <div className="buttons">
           <div className="buttonsize">
-            <div className="buttonleft" 
-              onClick={() => {
-                this.move("left");
-              }}
-            >
+            <div className="buttonleft" onClick={() => { this.move("left"); }} >
               Left
-              <img src="./baseline-keyboard_arrow_left-24px.svg" alt="Flèche gauche">  
-              </img>
+              {/*<img src={require('D:/1b_PROJETS/YNOV/6_JAVASCRIPT/2048/src/components/Content/fl_bottom.svg')} alt="Flèche gauche" /> */} 
             </div>
           </div>
-          <table>
-            {this.state.grid.map((row, i) => <Row key={i} row={row} />)}
-          </table>
+        </div>
+
+        <table>
+          {this.state.grid.map((row, i) => <Row key={i} row={row} />)}
+        </table>
+
+        <div className="buttons">
           <div className="buttonsize">
-            <div
-              className="buttonright"
-              onClick={() => {
-                this.move("right");
-              }}
-            >
+            <div className="buttonright" onClick={() => { this.move("right"); }} >
               Right
             </div>
           </div>
         </div>
+      
         <div className="buttons">
-          <div
-            className="buttondown"
-            onClick={() => {
-              this.move("down");
-            }}
-          >
+          <div className="buttondown" onClick={() => { this.move("down"); }} >
             Down
           </div>
         </div>
