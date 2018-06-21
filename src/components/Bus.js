@@ -2,6 +2,12 @@
 // ------
 import { EventEmitter } from 'fbemitter'
 
+export class Bus extends EventEmitter {
+}
+
+export default new Bus()
+
+
 // LISTE DES EVENTS
 //     Direction({U, R, D, L})
 //         Emit: Index (keyboard ou button fleche)
@@ -24,9 +30,3 @@ import { EventEmitter } from 'fbemitter'
 //     Undo()
 //         Emit: Index(bouton Undo)
 //         On: Game.js, Score.js, Record.js
-
-export class Bus extends EventEmitter {
-
-}
-
-export default new Bus()

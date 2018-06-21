@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import "./Grid.css";
+import bus from '../Bus'
 // import Game from 'Game' A intégrer quand déplacement des fonctions dans cet objet;
 
 
+
+/*=================================
+Constructeur de l'objet Grid
+=================================*/
 class Grid extends Component {
   constructor(props) {
     super(props);
@@ -91,6 +96,7 @@ class Grid extends Component {
               grid: upWithRandom,
               score: this.state.score + movedUp.score
             });
+            bus.emit('UpdateScore', this.state.score)
           }
         }
       } else if (direction === "right") {
@@ -109,6 +115,7 @@ class Grid extends Component {
               grid: rightWithRandom,
               score: this.state.score + movedRight.score
             });
+            bus.emit('UpdateScore', this.state.score)
           }
         }
       } else if (direction === "down") {
@@ -127,6 +134,7 @@ class Grid extends Component {
               grid: downWithRandom,
               score: this.state.score + movedDown.score
             });
+            bus.emit('UpdateScore', this.state.score)
           }
         }
       } else if (direction === "left") {
@@ -145,6 +153,7 @@ class Grid extends Component {
               grid: leftWithRandom,
               score: this.state.score + movedLeft.score
             });
+            bus.emit('UpdateScore', this.state.score)
           }
         }
       }

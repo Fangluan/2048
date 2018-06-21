@@ -3,9 +3,25 @@ import './Header.css';
 
 import Score from './Score';
 import Record from './Record';
-// Renomer bus.js en Bus.js et déplacer ds le meme dossier que App.js ?
+import bus from '../Bus'
+
+
+  
 
 class Header extends Component {
+  // Ajout des listeners
+
+  //Update_Score
+  componentDidMount() {
+    this.Update_Score = bus.addListener('Update_Score', this.Update_Score)
+  }
+  componentWillUnmount() {
+    this.Update_Score.remove()
+
+    if (this.bgColorTimeout) {
+      clearTimeout(this.bgColorTimeout)
+    }
+  }
 
     render() {
       return (

@@ -26,7 +26,7 @@ div.Header {
     ====================================*/  
     div.Elements {
         display: flex;
-        width: 500px;
+        width: 700px;
         margin: 30px auto;
         padding: 0 50px;
         justify-content: space-between;
@@ -61,13 +61,27 @@ div.Header {
         /*====================================
             SCORE (l'objet)
         ====================================*/
-        div.Score {
+        div.Container_Score {
             height: 50px;
-            color: green;
+            /* color: green; */
             display: block;
             margin: 10px;
         }
-            div.Score div{
-                font-size: 1.25rem;
+            div.Container_Score div{
+                font-size: 1.7rem;
                 display: inline;
+            }
+
+            .Flash_UpdateScore_Passif { /*Pas forcement nécessaire, mais on assure les basses pr le moment*/
+                margin: 10px;
+                color: white;
+            }
+            .Flash_UpdateScore_Actif { /*Pas forcement nécessaire, mais on assure les basses pr le moment*/
+                margin: 10px;
+                /*color: yellow;*/
+                font-size: 2rem;
+            } 
+            em.Increment {
+                font-size: 1.5rem;
+                color: grey;
             }

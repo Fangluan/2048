@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import bus from '../../bus'
+import bus from '../../components/Bus'
 
 
 class Record extends Component {

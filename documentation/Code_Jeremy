@@ -46,7 +46,10 @@ class Score extends Components {
   // ...
 
   render() {
-    return <strong className={`score-color-${this.state.bgColor}`}>{this.state.score}</strong>
+    return 
+      <strong className={`score-color-${this.state.bgColor}`}>
+        {this.state.score}
+      </strong>
   }
 }
 
